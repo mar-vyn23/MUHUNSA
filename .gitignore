@@ -5,3 +5,49 @@ db.sqlite3
 !**/migrations
 !**/migrations/__init__.py
 upload/questions.csv
+
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+# Virtual Environment
+venv/
+.env/
+
+# Database
+db.sqlite3
+
+# Static files
+/staticfiles/
+
+# Media files
+/media/
+
+# Secret key
+*.secret
+
+# IDE files
+.vscode/
+.idea/
+
+# Compiled Python files
+*.pyc
+*.pyo
+__pycache__/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Caches
+__pycache__/
+.cachefiles/
+
+# Docker
+docker-compose.yml
+Dockerfile
