@@ -1,0 +1,26 @@
+@import url('https://fonts.cdnfonts.com/css/amazon-ember');
+
+body{
+  min-height: 200px;
+  padding-top: 50px;
+  font-family: 'Amazon Ember', sans-serif;
+  font-family: 'Amazon Ember Cd RC', sans-serif;
+  font-family: 'Amazon Ember Display', sans-serif;
+  font-family: 'Amazon Ember Duospace', sans-serif;
+  font-family: 'Amazon Ember Mono', sans-serif;
+  font-family: 'Amazon Ember V2', sans-serif;
+}
+
+footer {
+  background-color: #087269;
+  font-family: 'Amazon Ember', sans-serif;
+  font-family: 'Amazon Ember Cd RC', sans-serif;
+  font-family: 'Amazon Ember Display', sans-serif;
+  font-family: 'Amazon Ember Duospace', sans-serif;
+  font-family: 'Amazon Ember Mono', sans-serif;
+  font-family: 'Amazon Ember V2', sans-serif;
+}
+
+.copyright-text {
+  background-color: rgba(0, 0, 0, 0.2);
+}

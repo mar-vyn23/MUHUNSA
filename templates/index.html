@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block body %}
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Your custom CSS -->
+    <link href="{% static 'css/carousel_design.css' %}" rel="stylesheet">
+    
+</head>
+
+<body>
+
+  <main>
+    <div id="nutritionCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+  
+        <div class="carousel-item active">
+          <img src="{% static 'img/nutrition-slide1.jpg' %}" class="d-block w-100" alt="">
+          <div class="carousel-caption d-none d-md-block">
+            <h1 class="carousel-title">MAKERERE UNIVERSITY HUMAN NUTRITION STUDENTS' ASSOCIATION (MUHUNSA)</h1>
+            <p class="lead text-white mt-lg-3 mb-lg-5">Promoting Nutrition Education<br>Discover the benefits of nutritious food choices and promote a healthy lifestyle with Makerere University Human Nutrition Students' Association (MUHUNSA).</p>
+            <a href="{% url 'about_us' %}" class="btn btn-secondary">Learn more about MUHUNSA</a>
+          </div>
+        </div>
+  
+        <div class="carousel-item">
+          <img src="{% static 'img/nutrition-slide2.jpg' %}" class="d-block w-100" alt="">
+          <div class="carousel-caption d-none d-md-block">
+            <h1 class="carousel-title">Empowering Nutrition Leaders</h1>
+            <p class="lead text-white mt-lg-3 mb-lg-5">Educating communities about the importance of proper nutrition for overall well-being. Join MUHUNSA in promoting nutritional education.</p>
+            <a href="#" class="btn btn-secondary">Explore MUHUNSA's events</a>
+          </div>
+        </div>
+  
+        <div class="carousel-item">
+          <img src="{% static 'img/nutrition-slide3.jpg' %}" class="d-block w-100" alt="">
+          <div class="carousel-caption d-none d-md-block">
+            <h1 class="carousel-title">Connect with MUHUNSA</h1>
+            <p class="lead text-white mt-lg-3 mb-lg-5">Connect with nutrition enthusiasts and professionals. Together with MUHUNSA, let's build a healthier world.</p>
+            <a href="#" class="btn btn-secondary">Get involved with MUHUNSA</a>
+          </div>
+        </div>
+  
+      </div>
+  
+      <button class="carousel-control-prev" type="button" data-bs-target="#nutritionCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#nutritionCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </main>
+  
+
+  
+</body>
+
+{% endblock %}
