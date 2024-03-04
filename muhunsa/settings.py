@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = environ.get('SECRET_KEY', 'get_one')
+SECRET_KEY = environ.get('SECRET_KEY', 'muhunsa')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = environ.get('DEBUG', True)
+DEBUG = environ.get('DEBUG', False)
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "marvin256.pythonanywhere.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "muhunsa.pythonanywhere.com"]
 
 
 # Application definition
@@ -162,3 +162,31 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
+
+JAZZMIN_SETTINGS = {
+    "site_title": "MAKERERE UNIVERSITY HUMAN NUTRITION STUDENTS' ASSOCIATION",
+    "site_header": "MAKERERE UNIVERSITY HUMAN NUTRITION STUDENTS' ASSOCIATION",
+    "site_brand": "MAKERERE UNIVERSITY HUMAN NUTRITION STUDENTS' ASSOCIATION",
+    "site_logo": "img/logo.ico",
+    "site_logo_classes": "img-circle",
+    "welcome_sign": "Welcome to the MUHUNSA",
+    "show_sidebar": False,
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+    },
+    "show_ui_builder": True,
+    "use_google_fonts_cdn": True,
+
+    "topmenu_links": [
+
+        # Url that gets reversed (Permissions can be added)
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+
+        # external url that opens in a new window (Permissions can be added)
+        {"name": "Support", "url": "mailto:msatulo23@gmail.com", "new_window": True},
+
+    ],
+    "copyright": "© 2024 Makerere University Human Nutrition Students' Association (MUHUNSA). All rights reserved.",
+}
