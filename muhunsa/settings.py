@@ -169,7 +169,7 @@ JAZZMIN_SETTINGS = {
     "site_brand": "MAKERERE UNIVERSITY HUMAN NUTRITION STUDENTS' ASSOCIATION",
     "site_logo": "img/logo.ico",
     "site_logo_classes": "img-circle",
-    "welcome_sign": "Welcome to the MUHUNSA",
+    "welcome_sign": "Welcome to the MUHUNSA Admin Panel",
     "show_sidebar": False,
     "icons": {
         "auth": "fas fa-users-cog",
