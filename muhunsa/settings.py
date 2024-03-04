@@ -26,7 +26,7 @@ SECRET_KEY = environ.get('SECRET_KEY', 'get_one')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = environ.get('DEBUG', True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "marvin256.pythonanywhere.com"]
 
 
 # Application definition
