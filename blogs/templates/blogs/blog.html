@@ -32,7 +32,14 @@
     </div>
     <p>
       {{ blog.content|safe }}
+
+      {% if blog.pdf_upload %}
+      <div class="row mt-3">
+        <a href="{{ blog.pdf_upload.url }}" class="btn btn-success btn-sm">Download Attached Document</a>
+      </div>
+        {% endif %}
     </p>
+
   </div>
   <br>
   <div class="row" id="features">
@@ -81,7 +88,7 @@
     </div>
   </div>
   <br><br><hr>
-  
+
   <div class="row mb-3" id="comments">
     <h1>
       <i class="bi bi-chat-left-text"></i>
@@ -127,7 +134,7 @@
         {% endfor %}
         <form action="{% url 'blogs:create_reply' %}" method="post">
           {% csrf_token %}
-          <div class="row"> 
+          <div class="row">
             <input type="hidden" name="id" value="{{comment.id}}">
             <div class="col-10">
               <input type="text" class="form-control" name="reply" placeholder="Add a reply" required>

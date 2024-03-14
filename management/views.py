@@ -29,7 +29,8 @@ class CreateBlog(View):
         desc = data.get("desc")
         content = data.get("content")
         thumbnail = request.FILES.get("thumbnail")
-        categories = data.getlist("categories") 
+        pdf_upload = request.FILES.get("pdf_upload")  # Retrieve the uploaded PDF file
+        categories = data.getlist("categories")
         status = data.get("status")
 
         if not (title and desc and content and thumbnail and categories and status):
@@ -48,6 +49,7 @@ class CreateBlog(View):
             content = content,
             creator = request.user,
             thumbnail = thumbnail,
+            pdf_upload=pdf_upload,  # Assign the uploaded PDF file to the pdf_upload field
             is_published = status
         )
         blog.save()
@@ -84,7 +86,7 @@ class CreateCategory(View):
             c.save()
             messages.success(request, "Category created")
         return redirect("manage:create_category")
-        
+
 class EditBlog(View):
     def get(self, request, id):
         blog = Blog.objects.filter(id=id, creator=request.user).first()
@@ -94,7 +96,7 @@ class EditBlog(View):
         categories = Category.objects.all()
         form = CKEditorForm({"content": blog.content})
         return render(request, "management/edit_blog.html", {"blog": blog, "categories": categories, "form": form})
-    
+
     def post(self, request, id = None):
         data = request.POST
         id = data.get("id")
@@ -123,7 +125,7 @@ class EditBlog(View):
             blog.is_published = bool(status)
         except:
             messages.info(request, "Error while updating status")
-        
+
         blog.categories.set([])
         for id in categories:
             try:
@@ -166,7 +168,7 @@ class EditCategory(View):
         c.save()
         messages.success(request, "Changes saved")
         return redirect("manage:category")
-        
+
 
 class DeleteCategory(View):
     def get(self, request, id):

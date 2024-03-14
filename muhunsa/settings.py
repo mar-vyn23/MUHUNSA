@@ -91,10 +91,21 @@ WSGI_APPLICATION = 'muhunsa.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'muhunsa$default',
+        'USER': 'muhunsa',
+        'PASSWORD': 'P@ssword123',
+        'HOST':'muhunsa.mysql.pythonanywhere-services.com',
+        'PORT':'3306',
     }
 }
 
@@ -170,7 +181,8 @@ JAZZMIN_SETTINGS = {
     "site_logo": "img/logo.ico",
     "site_logo_classes": "img-circle",
     "welcome_sign": "Welcome to the MUHUNSA Admin Panel",
-    "show_sidebar": False,
+    "show_sidebar": True,
+    # "navigation_expanded": False,
     "icons": {
         "auth": "fas fa-users-cog",
         "auth.user": "fas fa-user",

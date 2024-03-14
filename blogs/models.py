@@ -2,6 +2,7 @@ from django.db import models
 from accounts.models import User
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
+from django.core.validators import FileExtensionValidator
 
 # Create your models here.
 class Category(models.Model):
@@ -17,7 +18,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.category
-    
+
 class Blog(models.Model):
     slug = models.SlugField(unique=True, null=False, blank=False, max_length=100)
     title = models.CharField(max_length=100)
@@ -29,6 +30,7 @@ class Blog(models.Model):
     is_active = models.BooleanField(default=True)
     is_published = models.BooleanField(default=True)
     published_on = models.DateTimeField(auto_now_add=True)
+    pdf_upload = models.FileField(upload_to="documents/%Y/%m/%d/", validators=[FileExtensionValidator(['pdf', 'doc', 'docx'])], null=True)
     creator = models.ForeignKey(to=User, on_delete=models.SET_NULL, related_name="blogs", null=True)
 
     def __str__(self):
