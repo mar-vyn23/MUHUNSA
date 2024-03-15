@@ -3,6 +3,7 @@ from accounts.models import User
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
 from django.core.validators import FileExtensionValidator
+from django.utils import timezone
 
 # Create your models here.
 class Category(models.Model):
@@ -77,3 +78,36 @@ class BlogLike(models.Model):
 
     def __str__(self):
         return f"BlogLike({self.id}, {self.creator.username})"
+    
+
+# photo gallery
+class Photo(models.Model):
+    title = models.CharField(max_length=100, blank=True)
+    image = models.ImageField(upload_to='photos/')
+    description = models.TextField(blank=True)
+    upload_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+    
+
+class Pub(models.Model):
+    name = models.CharField(max_length=255, default='Unnamed')
+    pdf_upload = models.FileField(upload_to="pubs/%Y/%m/%d/", validators=[FileExtensionValidator(['pdf', 'doc', 'docx'])], null=True)
+    modified_date = models.DateTimeField(auto_now=True)
+    size = models.PositiveIntegerField(blank=True, null=True)
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.pk:  # Check if it's a new instance
+            if self.file:
+                # Calculate and set the file size
+                self.size = self.file.size
+                
+        # Set the modified_date to the current East African Time
+        self.modified_date = timezone.localtime(timezone.now())
+        
+        super().save(*args, **kwargs)

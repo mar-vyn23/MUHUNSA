@@ -8,10 +8,10 @@ html {
 	text-size-adjust: 100%;
 }
 html,body {
-	height: 100%;
+	/* height: 100%; */
 	margin: 0;
-	min-height: 200px;
-    padding-top: 50px;
+	/* min-height: 200px; */
+    /* padding-top: 50px; */
     font-family: 'Amazon Ember', 'Amazon Ember Cd RC', 'Amazon Ember Display', 'Amazon Ember Duospace', 'Amazon Ember Mono', 'Amazon Ember V2', sans-serif;
 
 }
@@ -22,7 +22,7 @@ html,body {
 body {
 	margin: 0;
 	min-height: 200px;
-    padding-top: 50px;
+    /* padding-top: 50px; */
     font-family: 'Amazon Ember', 'Amazon Ember Cd RC', 'Amazon Ember Display', 'Amazon Ember Duospace', 'Amazon Ember Mono', 'Amazon Ember V2', sans-serif;
 
 }

@@ -10,4 +10,6 @@ urlpatterns = [
     path("create/bookmark/", login_required(views.CreateBookmark.as_view()), name="create_bookmark"),
     path("create/like/", login_required(views.CreateLike.as_view()), name="create_like"),
     path("<slug:slug>/", views.BlogView.as_view(), name="blog"),
+    path('photo_gallery', views.photo_gallery, name='photo_gallery'),
+    path('pubs', views.pubs, name='pubs'),
 ]

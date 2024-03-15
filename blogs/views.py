@@ -4,6 +4,10 @@ from django.views import View
 from django.db.models import F
 from django.urls import reverse
 from .models import *
+from django.core.paginator import Paginator
+from django.shortcuts import render
+from .models import Photo
+from .models import Pub
 
 # Create your views here.
 def get_blog_url(slug):
@@ -87,3 +91,18 @@ class CreateLike(View):
             l.save()
             messages.success(request, "Liked this blog")
         return redirect(get_blog_url(blog.slug)+"#features")
+    
+# photo gallery view
+def photo_gallery(request):
+    photos = Photo.objects.all().order_by('-upload_date')  # Newest first
+    print(photos)
+    paginator = Paginator(photos, 10)  # 10 photos per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {'page_obj': page_obj}
+    return render(request, 'blogs/gallery.html', context)
+
+def pubs(request):
+    resources = Pub.objects.all()  # Newest first
+    context = {'resources': resources}
+    return render(request, 'blogs/publication_list.html', context)
