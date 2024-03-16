@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Latest
+{% endblock %}
+
+{% block body %}
+  <div class="container mt-5 mb-5"> <!-- Add margin to the container -->
+    <div id="carouselContainer" class="carousel-container">
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          {% for photo in page_obj %}
+          <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <img src="{{ photo.image.url }}" class="d-block w-100 carousel-image" alt="{{ photo.title }}">
+          </div>
+          {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .carousel-container {
+      margin: 0.5px; /* Adjust margin as needed */
+    }
+
+    .carousel-image {
+      max-width: 100%; /* Ensure image width doesn't exceed parent container */
+      max-height: 450px; /* Set maximum height for consistency */
+      width: auto; /* Maintain aspect ratio */
+      margin: auto; /* Center the image horizontally */
+    }
+  </style>
+{% endblock %}

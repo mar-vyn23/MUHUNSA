@@ -1,0 +1,26 @@
+.equal-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0; /* Flat edges */
+    border-color: black;
+  }
+
+  .equal-card .card-body {
+    padding: 0;
+  }
+
+  .equal-size {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .zoom-effect:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }

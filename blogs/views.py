@@ -96,7 +96,7 @@ class CreateLike(View):
 def photo_gallery(request):
     photos = Photo.objects.all().order_by('-upload_date')  # Newest first
     print(photos)
-    paginator = Paginator(photos, 10)  # 10 photos per page
+    paginator = Paginator(photos, 9)  # 10 photos per page
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {'page_obj': page_obj}

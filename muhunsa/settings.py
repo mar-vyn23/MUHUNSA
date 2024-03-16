@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = environ.get('SECRET_KEY', 'muhunsa')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = environ.get('DEBUG', True)
+DEBUG = environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "muhunsa.pythonanywhere.com"]
 
@@ -203,4 +203,40 @@ JAZZMIN_SETTINGS = {
     "copyright": "© 2024 Makerere University Human Nutrition Students' Association (MUHUNSA). All rights reserved.",
 }
 
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": True,
+    "footer_small_text": True,
+    "body_small_text": True,
+    "brand_small_text": True,
+    "brand_colour": False,
+    "accent": "accent-primary",
+    "navbar": "navbar-dark",
+    "no_navbar_border": False,
+    "navbar_fixed": False,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": False,
+    "sidebar": "sidebar-dark-primary",
+    "sidebar_nav_small_text": True,
+    "sidebar_disable_expand": True,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": True,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    "theme": "solar",
+    "dark_mode_theme": "darkly",
+    "button_classes": {
+        "primary": "btn-outline-primary",
+        "secondary": "btn-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success"
+    },
+    "actions_sticky_top": False
+}
+
 TIME_ZONE = 'Africa/Nairobi'
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True

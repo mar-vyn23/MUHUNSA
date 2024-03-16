@@ -6,12 +6,12 @@
 
 {% block body %}
   <div class="container mt-5 mb-5">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="row row-cols-1 row-cols-md-3 g-2"> <!-- Adjust the gutter size here -->
       {% for photo in page_obj %}
         <div class="col">
-          <div class="card">
+          <div class="card equal-card">
             <div class="card-body">
-              <img src="{{ photo.image.url }}" class="card-img-top img-fluid equal-size zoom-effect" alt="{{ photo.title }}">
+              <img src="{{ photo.image.url }}" class="card-img-top img-fluid zoom-effect" alt="{{ photo.title }}">
             </div>
           </div>
         </div>
@@ -48,16 +48,31 @@
   </div>
 
   <style>
+    .equal-card {
+      width: 100%;
+      height: 300px; /* Adjust the height of the card as needed */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0; /* Flat edges */
+      border-color: white;
+      overflow: hidden; /* Ensure the image fits within the card */
+    }
+
+    .equal-card .card-body {
+      padding: 0;
+    }
+
     .equal-size {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensure the image covers the entire container */
+      transition: transform 0.3s ease;
     }
 
     .zoom-effect:hover {
-      transform: scale(1.1);
-      transition: transform 0.3s ease;
+      transform: scale(5);
+      z-index: 2; /* Bring the hovered image to the forefront */
     }
   </style>
 {% endblock %}
