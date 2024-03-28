@@ -103,9 +103,9 @@ class Pub(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.pk:  # Check if it's a new instance
-            if self.file:
+            if self.pdf_upload:
                 # Calculate and set the file size
-                self.size = self.file.size
+                self.size = self.pdf_upload.size
                 
         # Set the modified_date to the current East African Time
         self.modified_date = timezone.localtime(timezone.now())

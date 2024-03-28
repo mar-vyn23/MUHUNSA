@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = environ.get('SECRET_KEY', 'muhunsa')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = environ.get('DEBUG', False)
+DEBUG = environ.get('DEBUG', True)
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "muhunsa.pythonanywhere.com"]
 
